@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct l{
+    int data;
+    struct l* next;
+};
+typedef struct l node;
+node* head=NULL;
+void insertatbeinnig(int val){
+    node* newnode=(node*)malloc(sizeof(node));
+    newnode->data=val;
+    if(head==NULL){
+        newnode->next=NULL;
+        head=newnode;
+    }
+    else{
+        newnode->next=head;
+        head=newnode;
+    }
+}
+void display(){
+    node *temp=head;
+    while(temp!=NULL){
+        printf("%d ",temp->data);
+        temp=temp->next;
+    }
+}
+
+int main(){
+    insertatbeinnig(212);
+    insertatbeinnig(712);
+    insertatbeinnig(412);
+    insertatbeinnig(112);
+    printf("output\n");
+    display();
+    return 0;
+}
